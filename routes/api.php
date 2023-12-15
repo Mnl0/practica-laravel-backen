@@ -42,7 +42,7 @@ Route::prefix('ciudad')->group(function(){
 
 Route::prefix('calle')->group(function(){
     Route::get( '/', [CalleController::class, 'readAll'] );
-    Route::get( '/{id}', [CalleController::class, 'readOne'] );
+    Route::get( '/{nombre}', [CalleController::class, 'readOne'] );
     Route::post( '/', [CalleController::class, 'create'] );
     Route::put( '/{id}', [CalleController::class, 'update'] );
     Route::delete( '/{id}', [CalleController::class, 'delete'] );

@@ -14,10 +14,10 @@ class CalleController extends Controller
         return response()->json(['$calles' => $calles], 200);
     }
 
-    public function readOne($id)
+    public function readOne($nombre)
     {
-        $calle = Calle::find($id);
-        return response()->json(['$calle' => $calle], 200);
+        $calle = Calle::where('nombre', $nombre)->first();
+        return response()->json($calle , 200);
     }
 
     public function readCalleForCiudad($ciudad_id)
@@ -41,9 +41,9 @@ class CalleController extends Controller
         if(!$calle){
             return response()->json(['error'=> 'Calle no encontrada'], 404);
         }
-        $calle->nombre = $request->nombre;
+        $calle->nombre = $request->nombreNuevo;
         $calle->save();
-        return response()->json(['$calle' => $calle], 200);
+        return response()->json($calle, 200);
     }
 
     public function delete($id)

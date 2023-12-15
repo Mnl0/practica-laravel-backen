@@ -17,7 +17,7 @@ class ProvinciaController extends Controller
     public function readOne($id)
     {
         $provincia = Provincia::find($id);
-        return response()->json(['$provincia' => $provincia], 200);
+        return response()->json($provincia, 200);
     }
 
     public function readProvinciaForRegion($region_id)

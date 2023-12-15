@@ -17,7 +17,7 @@ class CiudadController extends Controller
     public function readOne($id)
     {
         $ciudad = Ciudad::find($id);
-        return response()->json(['$ciudad' => $ciudad], 200);
+        return response()->json($ciudad, 200);
     }
 
     public function readCiudadForProvincia($provincia_id)
